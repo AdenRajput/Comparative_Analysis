@@ -21,7 +21,7 @@ Deploying synthetic tabular network traffic requires aligning the underlying gen
 - **CIC-IDS2017**: Continuous, highly skewed network flow metrics.
 
 ### Evaluation Criteria
-* **Fidelity (Structural Realism)**: Screened using gatekeeper checks—specifically Data Structure (DS) consistency and empirical Correlation (Corr) deviation matrices to reject structurally non-compliant distributions[cite: 1].
+* **Fidelity (Structural Realism)**: Screened using gatekeeper checks—specifically Data Structure (DS) consistency and empirical Correlation (Corr) deviation matrices to reject structurally non-compliant distributions.
 * **Utility (Machine Learning Efficacy)**: Quantified using the Train on Synthetic, Test on Real (TSTR) protocol across standard downstream classifiers[cite: 1]. Performance is reported via Accuracy and Macro F1-score across $N = 20$ independent Monte Carlo executions ($\text{mean} \pm \text{std}$)[cite: 1].
 * **Computational Complexity**: Assessed via training/sampling wall-clock latency, parameter stability, and convergence characteristics[cite: 1].
 
