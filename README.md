@@ -149,6 +149,5 @@ If you find this framework, datasets, or methodology useful in your research, pl
 This work was supported by the European Celtic+ and Swedish Vinnova Project through CISSAN (*Collective Intelligence Supported by Security Aware Nodes*) under Grant C2022/1-3.
 
 * **Dure Adan Ammara** — [daf@bth.se](https://www.google.com/search?q=mailto%3Adaf%40bth.se)
-* **Jianguo Ding** (*Corresponding Author*) — [jianguo.ding@bth.se](https://www.google.com/search?q=mailto%3Ajianguo.ding%40bth.se)
 * **Institution:** Blekinge Institute of Technology (BTH), 37179 Karlskrona, Sweden
-* **Profiles:** [LinkedIn](https://www.linkedin.com) | [GitHub](https://github.com/AdenRajput)
+* **Profiles:** [LinkedIn](https://www.linkedin.com/in/adenrajput/) | [GitHub](https://github.com/AdenRajput)
