@@ -1,7 +1,6 @@
-```markdown
 # Architectural Selection Framework for Synthetic Network Traffic Generation
 
-[![IEEE Access](https://img.shields.io/badge/IEEE%20Access-10.1109%2FACCESS.2025.3646769-blue.svg)](https://doi.org/10.1109/ACCESS.2025.3646769)
+[![IEEE Access](https://img.shields.io/badge/IEEE%20Access-10.1109%2FACCESS.2025.3646769-blue.svg)](https://doi.org/10.1109/ACCESS.2025.3646769Download PDF)
 [![Paper PDF](https://img.shields.io/badge/Paper-Open%20Access%20PDF-red.svg)](https://doi.org/10.1109/ACCESS.2025.3646769)
 [![Git LFS](https://img.shields.io/badge/Data%20Storage-Git%20LFS-orange.svg)](https://git-lfs.github.com/)
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
@@ -11,7 +10,7 @@
 >
 > **"Architectural Selection Framework for Synthetic Network Traffic: Quantifying the Fidelity–Utility Trade-off"**  
 > *Dure Adan Ammara, Jianguo Ding, and Kurt Tutschku*  
-> **DOI**: [10.1109/ACCESS.2025.3646769](https://doi.org/10.1109/ACCESS.2025.3646769) | **Volume 14, 2026** (pp. 468–485)
+> **DOI**: [10.1109/ACCESS.2025.3646769Download PDF](https://doi.org/10.1109/ACCESS.2025.3646769)[cite: 1] | **Volume 14, 2026** (pp. 468–485)
 
 ---
 
@@ -22,9 +21,9 @@ Deploying synthetic tabular network traffic requires aligning the underlying gen
 - **CIC-IDS2017**: Continuous, highly skewed network flow metrics.
 
 ### Evaluation Criteria
-* **Fidelity (Structural Realism)**: Screened using gatekeeper checks—specifically Data Structure (DS) consistency and empirical Correlation (Corr) deviation matrices to reject structurally non-compliant distributions.
-* **Utility (Machine Learning Efficacy)**: Quantified using the Train on Synthetic, Test on Real (TSTR) protocol across standard downstream classifiers. Performance is reported via Accuracy and Macro F1-score across $N = 20$ independent Monte Carlo executions ($\text{mean} \pm \text{std}$).
-* **Computational Complexity**: Assessed via training/sampling wall-clock latency, parameter stability, and convergence characteristics.
+* **Fidelity (Structural Realism)**: Screened using gatekeeper checks—specifically Data Structure (DS) consistency and empirical Correlation (Corr) deviation matrices to reject structurally non-compliant distributions[cite: 1].
+* **Utility (Machine Learning Efficacy)**: Quantified using the Train on Synthetic, Test on Real (TSTR) protocol across standard downstream classifiers[cite: 1]. Performance is reported via Accuracy and Macro F1-score across $N = 20$ independent Monte Carlo executions ($\text{mean} \pm \text{std}$)[cite: 1].
+* **Computational Complexity**: Assessed via training/sampling wall-clock latency, parameter stability, and convergence characteristics[cite: 1].
 
 ---
 
@@ -74,87 +73,3 @@ Comparative_Analysis/
         ├── synthetic_df_ros.csv
         ├── synthetic_df_smote.csv
         └── synthetic_df_tvae.csv
-
-```
-
----
-
-## Environment & Dependencies
-
-### Prerequisites
-
-* **Python 3.8+**
-* **Git LFS** (Mandatory to pull the large synthetic CSV datasets)
-
-### Installation
-
-```bash
-# Clone the repository with Git LFS support
-git lfs install
-git clone [https://github.com/AdenRajput/Comparative_Analysis.git](https://github.com/AdenRajput/Comparative_Analysis.git)
-cd Comparative_Analysis
-git lfs pull
-
-```
-
-### Required Packages
-
-```bash
-pip install numpy pandas scipy scikit-learn imbalanced-learn torch pgmpy sdv matplotlib seaborn
-
-```
-
----
-
-## Reproduction Workflow
-
-1. **Preprocessed Feature Bases**:
-* **NSL-KDD**: Baseline features are available in `NSL-KDD/imp_final_df_NSLKDD.csv`.
-* **CIC-IDS2017**: Unzip `imp_final_df_CICIDS17.zip` into the `CICIDS-17/` directory before running downstream experiments.
-
-
-2. **Synthetic Data Synthesis**:
-* Run `T1_<DATASET>.ipynb` for baseline resampling methods (SMOTE, ADASYN, ROS, Cluster Centroids) and standard generative models (GMM, CTGAN, TVAE).
-* Run `T2_<DATASET>.ipynb` for specialized tabular networks (CopulaGAN, CastGAN, GANBLR-PP).
-
-
-3. **Benchmarking & Evaluation**:
-* Run `Eval_T1_<DATASET>.ipynb` and `Eval_T2_<DATASET>.ipynb` to execute gatekeeper structural tests and downstream 20-run Monte Carlo TSTR evaluations.
-
-
-
----
-
-## Citation
-
-If you find this framework, datasets, or methodology useful in your research, please cite our paper:
-
-```bibtex
-@article{ammara2026architectural,
-  author={Ammara, Dure Adan and Ding, Jianguo and Tutschku, Kurt},
-  journal={IEEE Access}, 
-  title={Architectural Selection Framework for Synthetic Network Traffic: Quantifying the Fidelity-Utility Trade-off}, 
-  year={2026},
-  volume={14},
-  number={},
-  pages={468-485},
-  doi={10.1109/ACCESS.2025.3646769},
-  publisher={IEEE}
-}
-
-```
-
----
-
-## Contact & Acknowledgements
-
-This work was supported by the European Celtic+ and Swedish Vinnova Project through **CISSAN** (*Collective Intelligence Supported by Security Aware Nodes*) under Grant C2022/1-3.
-
-* **Dure Adan Ammara** — [daf@bth.se](https://www.google.com/search?q=mailto%3Adaf%40bth.se)
-* **Jianguo Ding** (*Corresponding Author*) — [jianguo.ding@bth.se](https://www.google.com/search?q=mailto%3Ajianguo.ding%40bth.se)
-* **Institution**: Blekinge Institute of Technology (BTH), 37179 Karlskrona, Sweden
-* **Profiles**: [LinkedIn](https://www.linkedin.com/in/adenrajput/) | [GitHub](https://github.com/AdenRajput)
-
-```
-
-```
