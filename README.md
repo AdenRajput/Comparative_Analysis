@@ -1,48 +1,72 @@
 # Architectural Selection Framework for Synthetic Network Traffic Generation
-### A Statistically Validated Guide to Architectural Selection in Cybersecurity
-This repository contains the full source code and analysis supporting the paper: "Architectural Selection Framework for Synthetic Network Traffic Generation: An Empirical Comparative Study."
-## Project Overview
-This project systematically validates the claim that optimal synthetic data generation hinges on architectural compatibility with data structure, moving beyond simple performance comparisons. The final code includes the rigorous statistical validation required for the analysis. The key evaluation criteria, forming the basis of our Architectural Selection Framework, include:
-- **Fidelity (Structural Realism)**: Assessed using Gatekeeper Metrics, specifically, the Data Structure (DS) and Correlation (Corr) checks, to disqualify structurally compromised synthetic data.
-- **Utility (ML Efficacy)**: Quantified by TSTR Accuracy and F1-Score (mean $\pm$ standard deviation) across 20 independent runs.
-- **Scalability**: Measured via computational cost and architectural failure rates (e.g., for Diffusion Models).
 
-## Rigor and Reproducibility:
-To account for model stochasticity, all TSTR (Train on Synthetic, Test on Real) Accuracy and F1-Scores are reported as the mean ($\bar{x}$) and standard deviation ($\sigma$) across 20 independent executions ($N=20$), supporting the statistical rigor outlined in Section IV of the paper.
+[![Git LFS](https://img.shields.io/badge/Data%20Storage-Git%20LFS-orange.svg)](https://git-lfs.github.com/)
+[![Python 3.8+](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
-## Scripting and Pacakges
-This project was developed using **Python** with the following libraries:
-- **Data Handling and Visualization**: `numpy`, `pandas`, `seaborn`, `matplotlib`
-- **Machine Learning/Statistics**: `torch`, `sklearn`, `imblearn`, `scipy` (for statistical testing)
-- **Bayesian Networks**: `pgmpy`
-- **Synthetic Data Generation**: `sdv` (for CTGAN, CopulaGAN, TVAE)
+This repository contains the open-source implementation, synthetic datasets, and statistical validation pipeline supporting the paper:
 
-## Files and Dataset
+> **Architectural Selection Framework for Synthetic Network Traffic: Quantifying the Fidelity–Utility Trade-off**  
+> *IEEE Access*
 
-### Dataset
-The analysis utilizes two heterogeneous network traffic datasets: NSL-KDD (categorical-heavy) and CIC-IDS2017 (continuous flow-heavy).
+---
 
-### File Descriptions
-Below is a summary of the key files in both of the sub-repositories (i.e., NSL-KDD, CICIDS-17) and their purposes:
+## Overview
 
-- **`T1_NSLKDD.ipynb`**: This script handls the synthetic data genration of the standard & AI models for NSLKDD dataset.
-  
-- **T1_CICIDS17.ipynb`**: This script handls the synthetic data genration of the standard & AI models for CICIDS 2017 dataset.
-  
-- **`T2_NSLKDD.ipynb`**: This script handls the synthetic data genration of the prominent GAN models for NSLKDD dataset.
+Deploying synthetic tabular network traffic requires aligning the underlying generative architecture with the dataset's intrinsic structural properties. This framework evaluates generative performance across two heterogeneous benchmark domains:
+1. **NSL-KDD**: Categorical-heavy and discrete network telemetry.
+2. **CIC-IDS2017**: Continuous, highly skewed network flow metrics.
 
-- **T1_CICIDS17.ipynb`**: This script handls the synthetic data genration of the prominent GAN models for CICIDS 2017 dataset.
-  
-- **`Eval_T1_NSLKDD.IPYNB`**: Contains evalaution of the T1 file for NSLKDD dataset.
-  
-- **`Eval_T2_NSLKDD.IPYNB`**: Contains evalaution of the T2 file for NSLKDD dataset.
+### Evaluation Criteria
+* **Fidelity (Structural Realism)**: Screened using gatekeeper checks—specifically Data Structure (DS) consistency and empirical Correlation (Corr) deviation matrices to reject structurally non-compliant distributions.
+* **Utility (Machine Learning Efficacy)**: Quantified using the Train on Synthetic, Test on Real (TSTR) protocol across standard downstream classifiers. Performance is reported via Accuracy and Macro F1-score across $N = 20$ independent Monte Carlo executions ($mean \pm std$).
+* **Computational Complexity**: Assessed via training/sampling wall-clock latency, parameter stability, and convergence characteristics.
 
-- **`Eval_T1_CICIDS17.IPYNB`**: Contains evalaution of the T1 file for CICIDS 2017 dataset.
+---
 
-- **`Eval_T1_CICIDS17.IPYNB`**: Contains evalaution of the T2 file for CICIDS 2017 dataset.
+## Repository Structure
 
-## Contact
-For questions, feedback, or collaboration opportunities, feel free to reach out via:
-- **Email**: [daf@bth.se](mailto:daf@bth.se)
-- **Twitter/X**: [@Aden_Rajput_](https://x.com/Aden_Rajput_)
-- **LinkedIn**: [Aden Rajput](https://www.linkedin.com/in/adenrajput/)
+```text
+Comparative_Analysis/
+├── .gitattributes
+├── README.md
+│
+├── CICIDS-17/
+│   ├── imp_final_df_CICIDS17.zip          # Preprocessed baseline CIC-IDS2017 data
+│   ├── T1_CICIDS17.ipynb                  # Tier 1 Generative Models (Baselines & Standard AI)
+│   ├── T2_CICIDS17.ipynb                  # Tier 2 Generative Models (Specialized Deep Architectures)
+│   ├── Eval_T1_CICIDS17.IPYNB             # TSTR and structural fidelity evaluation for T1
+│   ├── Eval_T2_CICIDS17.IPYNB             # TSTR and structural fidelity evaluation for T2
+│   └── Synthetic_Datasets/                # Generated data (Tracked via Git LFS)
+│       ├── df_adasyn.csv
+│       ├── df_cc.csv
+│       ├── df_ctgan.csv
+│       ├── df_gmm.csv
+│       ├── df_ros.csv
+│       ├── df_smote.csv
+│       ├── df_tvae.csv
+│       ├── data_castgan.csv
+│       ├── data_copula_gan.csv
+│       ├── data_ctgan_T2.csv
+│       └── data_ganblrpp.csv
+│
+└── NSL-KDD/
+    ├── NSL_KDD_Train.csv                  # Processed training partition
+    ├── imp_final_df_NSLKDD.csv            # Feature-selected baseline data
+    ├── T1_NSLKDD.ipynb                    # Tier 1 Generative Models (Baselines & Standard AI)
+    ├── T2_NSLKDD.ipynb                    # Tier 2 Generative Models (Specialized Deep Architectures)
+    ├── Eval_T1_NSLKDD.ipynb               # TSTR and structural fidelity evaluation for T1
+    ├── Eval_T2_NSLKDD.IPYNB               # TSTR and structural fidelity evaluation for T2
+    └── Synthetic_Datasets/                # Generated data (Tracked via Git LFS)
+        ├── data_castgan.zip
+        ├── data_copula_gan.csv
+        ├── data_ctgan.csv
+        ├── data_ganblrpp.csv
+        ├── synthetic_df_adasyn.csv
+        ├── synthetic_df_bn.csv
+        ├── synthetic_df_cc.csv
+        ├── synthetic_df_ctgan.csv
+        ├── synthetic_df_gmm.zip
+        ├── synthetic_df_ros.csv
+        ├── synthetic_df_smote.csv
+        └── synthetic_df_tvae.csv
