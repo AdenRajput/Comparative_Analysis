@@ -1,13 +1,16 @@
 # Architectural Selection Framework for Synthetic Network Traffic Generation
 
+[![IEEE Access](https://img.shields.io/badge/IEEE%20Access-10.1109%2FACCESS.2025.3646769-blue.svg)](https://doi.org/10.1109/ACCESS.2025.3646769Download PDF)
+[![Paper PDF](https://img.shields.io/badge/Paper-Open%20Access%20PDF-red.svg)](https://doi.org/10.1109/ACCESS.2025.3646769)
 [![Git LFS](https://img.shields.io/badge/Data%20Storage-Git%20LFS-orange.svg)](https://git-lfs.github.com/)
-[![Python 3.8+](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
-This repository contains the open-source implementation, synthetic datasets, and statistical validation pipeline supporting the paper:
-
-> **Architectural Selection Framework for Synthetic Network Traffic: Quantifying the Fidelity–Utility Trade-off**  
-> *IEEE Access*
+> 📄 **Official Implementation & Benchmark Repository**  
+> This repository contains the source code, synthetic datasets, and evaluation pipelines supporting our published open-access research article in **IEEE Access**:
+>
+> **"Architectural Selection Framework for Synthetic Network Traffic: Quantifying the Fidelity–Utility Trade-off"**  
+> *Dure Adan Ammara, Jianguo Ding, and Kurt Tutschku*  
+> **DOI**: [10.1109/ACCESS.2025.3646769Download PDF](https://doi.org/10.1109/ACCESS.2025.3646769)[cite: 1] | **Volume 14, 2026** (pp. 468–485)
 
 ---
 
@@ -19,8 +22,8 @@ Deploying synthetic tabular network traffic requires aligning the underlying gen
 
 ### Evaluation Criteria
 * **Fidelity (Structural Realism)**: Screened using gatekeeper checks—specifically Data Structure (DS) consistency and empirical Correlation (Corr) deviation matrices to reject structurally non-compliant distributions.
-* **Utility (Machine Learning Efficacy)**: Quantified using the Train on Synthetic, Test on Real (TSTR) protocol across standard downstream classifiers. Performance is reported via Accuracy and Macro F1-score across $N = 20$ independent Monte Carlo executions ($\text{mean} \pm \text{std}$).
-* **Computational Complexity**: Assessed via training/sampling wall-clock latency, parameter stability, and convergence characteristics.
+* **Utility (Machine Learning Efficacy)**: Quantified using the Train on Synthetic, Test on Real (TSTR) protocol across standard downstream classifiers. Performance is reported via Accuracy and Macro F1-score across $N = 20$ independent Monte Carlo executions ($\text{mean} \pm \text{std}$)[cite: 1].
+* **Computational Complexity**: Assessed via training/sampling wall-clock latency, parameter stability, and convergence characteristics[cite: 1].
 
 ---
 
