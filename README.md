@@ -1,16 +1,10 @@
-```markdown
 # Architectural Selection Framework for Synthetic Network Traffic Generation
 
-[![IEEE Access](https://img.shields.io/badge/IEEE%20Access-10.1109%2FACCESS.2025.3646769-blue.svg)](https://doi.org/10.1109/ACCESS.2025.3646769)
-[![Paper PDF](https://img.shields.io/badge/Paper-Open%20Access%20PDF-red.svg)](https://doi.org/10.1109/ACCESS.2025.3646769)
-[![Git LFS](https://img.shields.io/badge/Data%20Storage-Git%20LFS-orange.svg)](https://git-lfs.github.com/)
-
-> 📄 **Official Implementation & Benchmark Repository**  
-> This repository contains the source code, synthetic datasets, and evaluation pipelines supporting our published open-access research article in **IEEE Access**:  
-> **"Architectural Selection Framework for Synthetic Network Traffic: Quantifying the Fidelity–Utility Trade-off"**  
->  
-> *Dure Adan Ammara, Jianguo Ding, and Kurt Tutschku*  
-> **DOI:** [10.1109/ACCESS.2025.3646769](https://doi.org/10.1109/ACCESS.2025.3646769) | **Volume 14, 2026 (pp. 468–485)**  
+> 📄 **Official Implementation & Benchmark Repository**
+> This repository contains the source code, synthetic datasets, and evaluation pipelines supporting our published open-access research article in **IEEE Access**:
+> **"Architectural Selection Framework for Synthetic Network Traffic: Quantifying the Fidelity–Utility Trade-off"**
+> *Dure Adan Ammara, Jianguo Ding, and Kurt Tutschku*
+> **DOI:** [10.1109/ACCESS.2025.3646769](https://doi.org/10.1109/ACCESS.2025.3646769) | **Volume 14, 2026 (pp. 468–485)**
 > [Download PDF](https://doi.org/10.1109/ACCESS.2025.3646769)
 
 ---
@@ -26,7 +20,11 @@ Deploying synthetic tabular network traffic requires aligning the underlying gen
 
 * **Fidelity (Structural Realism):** Screened using gatekeeper checks—specifically Data Structure (DS) consistency and empirical Correlation (Corr) deviation matrices to reject structurally non-compliant distributions.
 * **Utility (Machine Learning Efficacy):** Quantified using the Train on Synthetic, Test on Real (TSTR) protocol across standard downstream classifiers. Performance is reported via Accuracy and Macro F1-score across $N = 20$ independent Monte Carlo executions ($\text{mean} \pm \text{std}$).
+
+
 * **Computational Complexity:** Assessed via training/sampling wall-clock latency, parameter stability, and convergence characteristics.
+
+
 
 ---
 
@@ -92,7 +90,7 @@ Comparative_Analysis/
 
 ```bash
 git lfs install
-git clone [https://github.com/AdenRajput/Comparative_Analysis.git](https://github.com/AdenRajput/Comparative_Analysis.git)
+git clone https://github.com/AdenRajput/Comparative_Analysis.git
 cd Comparative_Analysis
 git lfs pull
 
@@ -154,14 +152,3 @@ This work was supported by the European Celtic+ and Swedish Vinnova Project thro
 * **Jianguo Ding** (*Corresponding Author*) — [jianguo.ding@bth.se](https://www.google.com/search?q=mailto%3Ajianguo.ding%40bth.se)
 * **Institution:** Blekinge Institute of Technology (BTH), 37179 Karlskrona, Sweden
 * **Profiles:** [LinkedIn](https://www.linkedin.com) | [GitHub](https://github.com/AdenRajput)
-
-```
-
-To update the repository:
-1. Paste this into `README.md` and save (`Ctrl + S`).
-2. Run in terminal:
-```bash
-git commit -am "Update full academic README with paper and workflow"
-git push origin main
-
-```
