@@ -14,12 +14,12 @@ This repository contains the open-source implementation, synthetic datasets, and
 ## Overview
 
 Deploying synthetic tabular network traffic requires aligning the underlying generative architecture with the dataset's intrinsic structural properties. This framework evaluates generative performance across two heterogeneous benchmark domains:
-1. **NSL-KDD**: Categorical-heavy and discrete network telemetry.
-2. **CIC-IDS2017**: Continuous, highly skewed network flow metrics.
+- **NSL-KDD**: Categorical-heavy and discrete network telemetry.
+- **CIC-IDS2017**: Continuous, highly skewed network flow metrics.
 
 ### Evaluation Criteria
 * **Fidelity (Structural Realism)**: Screened using gatekeeper checks—specifically Data Structure (DS) consistency and empirical Correlation (Corr) deviation matrices to reject structurally non-compliant distributions.
-* **Utility (Machine Learning Efficacy)**: Quantified using the Train on Synthetic, Test on Real (TSTR) protocol across standard downstream classifiers. Performance is reported via Accuracy and Macro F1-score across $N = 20$ independent Monte Carlo executions ($mean \pm std$).
+* **Utility (Machine Learning Efficacy)**: Quantified using the Train on Synthetic, Test on Real (TSTR) protocol across standard downstream classifiers. Performance is reported via Accuracy and Macro F1-score across $N = 20$ independent Monte Carlo executions ($\text{mean} \pm \text{std}$).
 * **Computational Complexity**: Assessed via training/sampling wall-clock latency, parameter stability, and convergence characteristics.
 
 ---
